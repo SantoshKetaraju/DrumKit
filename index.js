@@ -11,9 +11,6 @@ document.addEventListener("keydown", function(event) {
   makeSound(event.key);
   buttonAnimation(event.key);
 });
-document.addEventListener("keyup", function(event) {
-  buttonAnimation(event.key);
-});
 
 function makeSound(key) {
   switch (key) {
@@ -60,36 +57,10 @@ function makeSound(key) {
 }
 
 function buttonAnimation(key) {
-  switch (key) {
-    case "w":
-      document.querySelector("." + key).classList.toggle("pressed");
-      break;
+  var buttonClicked = document.querySelector("." + key);
+  buttonClicked.classList.add("pressed");
+  setTimeout(function() {
+    buttonClicked.classList.remove("pressed");
+  }, 100);
 
-    case "a":
-      document.querySelector("." + key).classList.toggle("pressed");
-      break;
-
-    case "s":
-      document.querySelector("." + key).classList.toggle("pressed");
-      break;
-
-    case "d":
-      document.querySelector("." + key).classList.toggle("pressed");
-      break;
-
-    case "j":
-      document.querySelector("." + key).classList.toggle("pressed");
-      break;
-
-    case "k":
-      document.querySelector("." + key).classList.toggle("pressed");
-      break;
-
-    case "l":
-      document.querySelector("." + key).classList.toggle("pressed");
-      break;
-
-    default:
-      console.log(this.textContent);
-  }
 }
